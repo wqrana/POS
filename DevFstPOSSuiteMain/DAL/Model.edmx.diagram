@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d0483969acfe481cb979fff138ced46e" Name="Diagram1" ZoomLevel="44">
+        <EntityTypeShape EntityType="RetailDBModel.POInventoryDetail" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RetailDBModel.POSaleDetail" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="RetailDBModel.POExpenseDetail" Width="1.5" PointX="3.375" PointY="3.75" />
+        <EntityTypeShape EntityType="RetailDBModel.POInventoryMaster" Width="1.5" PointX="5.375" PointY="4.25" />
+        <EntityTypeShape EntityType="RetailDBModel.POActivityDetail" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="RetailDBModel.AuthenticationRule" Width="1.5" PointX="9.375" PointY="0.75" />
+        <EntityTypeShape EntityType="RetailDBModel.CNF_AppConfiguration" Width="1.5" PointX="3.375" PointY="9.75" />
+        <EntityTypeShape EntityType="RetailDBModel.CNF_Supplier" Width="1.5" PointX="9.375" PointY="5.75" />
+        <EntityTypeShape EntityType="RetailDBModel.CNF_Bank" Width="1.5" PointX="5.375" PointY="9.75" />
+        <EntityTypeShape EntityType="RetailDBModel.CNF_ProductType" Width="1.5" PointX="7.375" PointY="10.75" />
+        <EntityTypeShape EntityType="RetailDBModel.STK_UOM" Width="1.5" PointX="9.375" PointY="10.75" />
+        <EntityTypeShape EntityType="RetailDBModel.SAL_RateListDetail" Width="1.5" PointX="11.375" PointY="4.75" />
+        <EntityTypeShape EntityType="RetailDBModel.SAL_RateList" Width="1.5" PointX="11.375" PointY="0.75" />
+        <EntityTypeShape EntityType="RetailDBModel.SAL_InvoiceDetail" Width="1.5" PointX="11.375" PointY="8.75" />
+        <EntityTypeShape EntityType="RetailDBModel.SAL_InvoiceMaster" Width="1.5" PointX="13.375" PointY="0.75" />
+        <EntityTypeShape EntityType="RetailDBModel.CNF_IncomeType" Width="1.5" PointX="5.375" PointY="13.75" />
+        <EntityTypeShape EntityType="RetailDBModel.POIncome" Width="1.5" PointX="7.375" PointY="13.75" />
+        <EntityTypeShape EntityType="RetailDBModel.POPaymentDisbursementDetail" Width="1.5" PointX="9.375" PointY="13.75" />
+        <EntityTypeShape EntityType="RetailDBModel.POPaymentDisbursement" Width="1.5" PointX="13.375" PointY="9.75" />
+        <EntityTypeShape EntityType="RetailDBModel.STK_productMaster" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="RetailDBModel.AuthenticationRules_Rights_Detail" Width="1.5" PointX="11.375" PointY="14.75" />
+        <EntityTypeShape EntityType="RetailDBModel.SMSCampaign" Width="1.5" PointX="13.375" PointY="14.75" />
+        <EntityTypeShape EntityType="RetailDBModel.SMSCampaignDetail" Width="1.5" PointX="15.375" PointY="0.75" />
+        <EntityTypeShape EntityType="RetailDBModel.LOG_NotificationSendingData" Width="1.5" PointX="0.75" PointY="15.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

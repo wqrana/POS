@@ -1,0 +1,1901 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="RetailDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AuthenticationRules">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="Pass" Type="varchar" MaxLength="50" />
+          <Property Name="Employee" Type="bit" />
+          <Property Name="Customer" Type="bit" />
+          <Property Name="dtstamp" Type="datetime" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserType" Type="nvarchar" MaxLength="10" />
+          <Property Name="Ibsales" Type="bit" />
+          <Property Name="Ibinventory" Type="bit" />
+          <Property Name="IbReports" Type="bit" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="IbFinance" Type="bit" />
+        </EntityType>
+        <EntityType Name="AuthenticationRules_Rights_Detail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="100" />
+          <Property Name="ObjectName" Type="varchar" MaxLength="50" />
+          <Property Name="Viewable" Type="bit" />
+          <Property Name="Updatable" Type="bit" />
+          <Property Name="Deletable" Type="bit" />
+        </EntityType>
+        <EntityType Name="CNF_AppConfiguration">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BusinessCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="BusinessName" Type="nvarchar" MaxLength="100" />
+          <Property Name="BusinessShortName" Type="nvarchar" MaxLength="25" />
+          <Property Name="BusinessAddress" Type="nvarchar" MaxLength="200" />
+          <Property Name="LandLine" Type="nvarchar" MaxLength="15" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="15" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="NotificationEmail" Type="nvarchar" MaxLength="200" />
+          <Property Name="SalesNotification" Type="bit" />
+          <Property Name="SalesClosureNotification" Type="bit" />
+          <Property Name="DailyStockNotification" Type="bit" />
+          <Property Name="LowStockNotification" Type="bit" />
+          <Property Name="PaymentDays" Type="int" />
+          <Property Name="FirstPaymentNotification" Type="bit" />
+          <Property Name="FirstNotificationDaysBefore" Type="int" />
+          <Property Name="SecPaymentNotification" Type="bit" />
+          <Property Name="SecNotificationDaysBefore" Type="int" />
+          <Property Name="ThirdPaymentNotification" Type="bit" />
+          <Property Name="ThirdNotificationDaysBefore" Type="int" />
+          <Property Name="DefaultBankID" Type="int" />
+          <Property Name="AccountNo" Type="nvarchar" MaxLength="20" />
+          <Property Name="NotificationEmailProfile" Type="varchar" MaxLength="25" />
+          <Property Name="DailyExpenseNotification" Type="bit" />
+          <Property Name="SMSGateWayURL" Type="varchar" MaxLength="255" />
+          <Property Name="SMSGateWayUser" Type="varchar" MaxLength="50" />
+          <Property Name="SMSGateWayPwd" Type="varchar" MaxLength="25" />
+          <Property Name="SalesSMSNotification" Type="bit" />
+          <Property Name="SMSCountryCode" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="CNF_Bank">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ShortName" Type="nvarchar" MaxLength="15" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Active" Type="bit" />
+        </EntityType>
+        <EntityType Name="CNF_IncomeType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CNF_ProductType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Active" Type="bit" />
+        </EntityType>
+        <EntityType Name="CNF_Supplier">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BusinessName" Type="nvarchar" MaxLength="100" />
+          <Property Name="ShortName" Type="nvarchar" MaxLength="25" />
+          <Property Name="BusinessType" Type="nvarchar" MaxLength="25" />
+          <Property Name="ContactPerson" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="150" />
+          <Property Name="LandLine" Type="nvarchar" MaxLength="15" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="15" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="DefaultBankID" Type="int" />
+          <Property Name="AccountNo" Type="nvarchar" MaxLength="20" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="PaymentDays" Type="int" />
+        </EntityType>
+        <EntityType Name="LOG_NotificationSendingData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NotificationMessage" Type="nvarchar(max)" />
+          <Property Name="NotificationType" Type="nvarchar" MaxLength="15" />
+          <Property Name="NotificationResponse" Type="nvarchar" MaxLength="1000" />
+          <Property Name="NotificationStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="POActivityDetail">
+          <Key>
+            <PropertyRef Name="ActivityID" />
+          </Key>
+          <Property Name="ActivityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ActivityDate" Type="datetime" />
+          <Property Name="SourceProductCode" Type="nvarchar" MaxLength="25" />
+          <Property Name="SourceProductQty" Type="int" />
+          <Property Name="TargetProductCode" Type="nvarchar" MaxLength="25" />
+          <Property Name="TargetProductQty" Type="int" />
+          <Property Name="ActivityType" Type="nvarchar" MaxLength="25" />
+          <Property Name="Status" Type="nvarchar" MaxLength="25" />
+          <Property Name="CompletionDate" Type="datetime" />
+          <Property Name="TargetLocation" Type="nvarchar" MaxLength="50" />
+          <Property Name="ActivityDetailDesc" Type="nvarchar" MaxLength="500" />
+          <Property Name="NetDealerPrice" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="LastUpdatedOn" Type="datetime" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="POExpenseDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ExpenseDate" Type="datetime" />
+          <Property Name="ExpenseType" Type="nvarchar" MaxLength="50" />
+          <Property Name="ExpenseDesc" Type="nvarchar" MaxLength="1000" />
+          <Property Name="ExpenseAmount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="500" />
+          <Property Name="Status" Type="nvarchar" MaxLength="25" />
+          <Property Name="AdjustedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="POIncome">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PostingDate" Type="datetime" />
+          <Property Name="IncomeType" Type="int" />
+          <Property Name="PostingAmount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Reference" Type="nchar" MaxLength="100" />
+          <Property Name="CreatedBy" Type="nchar" MaxLength="50" />
+          <Property Name="LastUpdatedDate" Type="datetime" />
+          <Property Name="LastUpdatedBy" Type="nchar" MaxLength="50" />
+          <Property Name="AdjustedInPOS" Type="bit" />
+        </EntityType>
+        <EntityType Name="POInventoryDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderID" Type="int" />
+          <Property Name="ProductCode" Type="nvarchar" MaxLength="25" />
+          <Property Name="RetailPrice" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Qty" Type="int" />
+          <Property Name="ProductDiscount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="DealerPrice" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="NetProductDiscPct" Type="decimal" Precision="7" Scale="4" />
+          <Property Name="NetDealerPrice" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="2000" />
+          <Property Name="DealerDiscPct" Type="decimal" Precision="7" Scale="4" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="LastModifiedDate" Type="datetime" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsManualRate" Type="bit" />
+        </EntityType>
+        <EntityType Name="POInventoryMaster">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="OrderDate" Type="datetime" />
+          <Property Name="DealerDisPct" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="FreightCharges" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="StdDisPct" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="BreakupDisPct" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CatDisPct" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="InvoiceAmount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="DueDate" Type="datetime" />
+          <Property Name="PaymentDate" Type="datetime" />
+          <Property Name="Reference" Type="nvarchar" MaxLength="100" />
+          <Property Name="PaymentDisPct" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="LastUpdateDate" Type="datetime" />
+          <Property Name="InvoiceNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="InvoiceDate" Type="datetime" />
+          <Property Name="SupplierID" Type="int" />
+          <Property Name="PaymentStatus" Type="nvarchar" MaxLength="15" />
+          <Property Name="PaymentAmount" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="POPaymentDisbursement">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SupplierID" Type="int" />
+          <Property Name="PaymentMode" Type="nvarchar" MaxLength="20" />
+          <Property Name="PaymentReference" Type="nvarchar" MaxLength="100" />
+          <Property Name="PaymentBankID" Type="int" />
+          <Property Name="PaymentAccount" Type="nvarchar" MaxLength="25" />
+          <Property Name="PaymentAmount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="AdjustmentAmount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="PaymentDate" Type="datetime" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="100" />
+          <Property Name="ReferenceDocument" Type="image" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="POPaymentDisbursementDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderID" Type="int" />
+          <Property Name="DisbursementID" Type="int" />
+          <Property Name="PaidPayment" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="AdjustedPayment" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="POSaleDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SaleDate" Type="datetime" />
+          <Property Name="CashInHand" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="SaleClosure" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="ClosureBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="500" />
+          <Property Name="AdjustedExpense" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TotalSale" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="WithdrawCash" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="WithdrawBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsClosed" Type="bit" />
+          <Property Name="LastModifiedOn" Type="datetime" />
+          <Property Name="AdjustedIncomeLoss" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="POCashAdjustment" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="SAL_InvoiceDetail">
+          <Key>
+            <PropertyRef Name="InvoiceNo" />
+            <PropertyRef Name="AutoID" />
+          </Key>
+          <Property Name="InvoiceNo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ProductCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Qty" Type="int" />
+          <Property Name="Rate" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="AutoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoginHistoryId" Type="int" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="ListRate" Type="float" />
+          <Property Name="DisP" Type="float" />
+          <Property Name="CCode" Type="int" />
+          <Property Name="NetRate" Type="float" />
+          <Property Name="DisAmt" Type="float" />
+          <Property Name="Status" Type="varchar" MaxLength="10" />
+          <Property Name="ReferenceID" Type="int" />
+        </EntityType>
+        <EntityType Name="SAL_InvoiceMaster">
+          <Key>
+            <PropertyRef Name="InvoiceNo" />
+            <PropertyRef Name="CCode" />
+          </Key>
+          <Property Name="InvoiceNo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CustomerCode" Type="varchar" MaxLength="50" />
+          <Property Name="Remarks" Type="varchar" MaxLength="50" />
+          <Property Name="InvoiceDate" Type="datetime" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="LoginHistoryID" Type="int" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="dtStamp" Type="datetime" />
+          <Property Name="PostedBy_Code" Type="varchar" MaxLength="50" />
+          <Property Name="PostedDate" Type="datetime" />
+          <Property Name="Invoiceof" Type="varchar" MaxLength="20" />
+          <Property Name="AutoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AddaId" Type="varchar" MaxLength="50" />
+          <Property Name="GodownId" Type="varchar" MaxLength="50" />
+          <Property Name="OrderNo" Type="varchar" MaxLength="50" />
+          <Property Name="DCNo" Type="varchar" MaxLength="50" />
+          <Property Name="OrderDate" Type="datetime" />
+          <Property Name="DeliveryDate" Type="datetime" />
+          <Property Name="SSName" Type="varchar" MaxLength="250" />
+          <Property Name="SSAddress" Type="varchar" MaxLength="250" />
+          <Property Name="SSCity" Type="varchar" MaxLength="250" />
+          <Property Name="Bilty" Type="varchar" MaxLength="250" />
+          <Property Name="CCode" Type="int" Nullable="false" />
+          <Property Name="ReferenceNo" Type="varchar" MaxLength="50" />
+          <Property Name="InvoiceType" Type="varchar" MaxLength="50" />
+          <Property Name="CashAcNo" Type="varchar" MaxLength="50" />
+          <Property Name="DisAcNo" Type="varchar" MaxLength="50" />
+          <Property Name="Discount" Type="float" />
+          <Property Name="Phone" Type="varchar" MaxLength="100" />
+          <Property Name="IsNotify" Type="bit" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="LastModifiedDate" Type="datetime" />
+          <Property Name="LastModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ReceivedAmount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="BalanceAmount" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="SAL_RateList">
+          <Key>
+            <PropertyRef Name="RateListId" />
+          </Key>
+          <Property Name="RateListId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="username" Type="varchar" MaxLength="50" />
+          <Property Name="dtStamp" Type="smalldatetime" />
+          <Property Name="TerrId" Type="varchar" MaxLength="50" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="LoginHistoryId" Type="int" />
+          <Property Name="CCode" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SAL_RateListDetail">
+          <Key>
+            <PropertyRef Name="RateListId" />
+            <PropertyRef Name="ProductCode" />
+          </Key>
+          <Property Name="RateListId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ProductCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Rate" Type="float" />
+          <Property Name="username" Type="varchar" MaxLength="50" />
+          <Property Name="dtStamp" Type="smalldatetime" />
+          <Property Name="LoginHistoryId" Type="int" />
+          <Property Name="SRRate" Type="float" />
+          <Property Name="AutoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CCode" Type="int" />
+        </EntityType>
+        <EntityType Name="SMSCampaign">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CampaignName" Type="varchar" MaxLength="100" />
+          <Property Name="CampaignMessage" Type="varchar" MaxLength="1000" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreateBy" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SMSCampaignDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CampaignID" Type="int" />
+          <Property Name="ContactNo" Type="varchar" MaxLength="15" />
+          <Property Name="SendResponse" Type="varchar" MaxLength="500" />
+          <Property Name="SendStatus" Type="varchar" MaxLength="10" />
+          <Property Name="UpdatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="STK_productMaster">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ProductName" Type="varchar" MaxLength="300" />
+          <Property Name="Unit" Type="varchar" MaxLength="50" />
+          <Property Name="Rate" Type="numeric" Precision="10" Scale="3" />
+          <Property Name="Category" Type="varchar" MaxLength="250" />
+          <Property Name="UOMID" Type="varchar" MaxLength="50" />
+          <Property Name="StdPackingID" Type="varchar" MaxLength="50" />
+          <Property Name="PurchaserId" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="BlockTrans" Type="varchar" MaxLength="50" />
+          <Property Name="SupplierId" Type="int" />
+          <Property Name="OpDate" Type="date" />
+          <Property Name="dtStamp" Type="date" />
+          <Property Name="MinLevel" Type="float" />
+          <Property Name="MaxLevel" Type="float" />
+          <Property Name="ReOrdQty" Type="float" />
+          <Property Name="ACNo" Type="varchar" MaxLength="50" />
+          <Property Name="GroupId" Type="varchar" MaxLength="50" />
+          <Property Name="SubGroupId" Type="varchar" MaxLength="50" />
+          <Property Name="LeadTime" Type="float" />
+          <Property Name="MPCode" Type="varchar" MaxLength="50" />
+          <Property Name="LoginHistoryId" Type="int" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="CT" Type="float" />
+          <Property Name="StdWeight" Type="float" />
+          <Property Name="Consumable" Type="varchar" MaxLength="100" />
+          <Property Name="ProdRate" Type="float" />
+          <Property Name="OldCode" Type="varchar" MaxLength="50" />
+          <Property Name="AutoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OldPurchaserId" Type="varchar" MaxLength="50" />
+          <Property Name="OldSupplierId" Type="varchar" MaxLength="50" />
+          <Property Name="ACNoCons" Type="varchar" MaxLength="50" />
+          <Property Name="ProductNameUrdu" Type="nvarchar" MaxLength="250" />
+          <Property Name="MatCateID" Type="varchar" MaxLength="50" />
+          <Property Name="CCode" Type="int" />
+          <Property Name="SRate" Type="float" />
+          <Property Name="DisP" Type="float" />
+          <Property Name="ProductTypeID" Type="int" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="ShortName" Type="varchar" MaxLength="25" />
+          <Property Name="POSShortcutBtn" Type="bit" />
+          <Property Name="POSShortcutBtnSeq" Type="int" />
+        </EntityType>
+        <EntityType Name="STK_UOM">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UOMName" Type="varchar" MaxLength="50" />
+          <Property Name="username" Type="varchar" MaxLength="50" />
+          <Property Name="dtStamp" Type="date" />
+          <Property Name="LoginHistoryId" Type="int" />
+          <Property Name="CCode" Type="int" />
+        </EntityType>
+        <Function Name="Generate_NewSaleInvoiceNo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar" />
+        <Function Name="sp_calculateInventoryDealerRate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="OrderID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_dailySaleClosureHistoryDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fromDate" Type="datetime" Mode="In" />
+          <Parameter Name="toDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="sp_dailyStockReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="reportDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="sp_POSCustomerSrhList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_rp_dailExpenseDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fromDate" Type="datetime" Mode="In" />
+          <Parameter Name="toDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="sp_rp_dailySaleStat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fromDate" Type="datetime" Mode="In" />
+          <Parameter Name="toDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="sp_rp_dailyStock" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="reportDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="sp_rp_MiscIncomeDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fromDate" Type="datetime" Mode="In" />
+          <Parameter Name="toDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="sp_rp_orderInvoiceDetailReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="orderID" Type="int" Mode="In" />
+          <Parameter Name="SupplierID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_rp_POPaymentHistoryDetailReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SupplierID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_rp_POSCustomerList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_rp_productBarcode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="supplierID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_rp_RegisterSaleInvoiceDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fromDate" Type="datetime" Mode="In" />
+          <Parameter Name="toDate" Type="datetime" Mode="In" />
+          <Parameter Name="invoiceNo" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_rpt_ProductActivityDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fromDate" Type="datetime" Mode="In" />
+          <Parameter Name="toDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="sp_rpt_StockInHandValueDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_saleInvoice_itemDetailForReturn" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="InvoiceNo" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_TopSellingItemOverviewReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PeriodTypeID" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="RetailDBModelStoreContainer">
+          <EntitySet Name="AuthenticationRules" EntityType="Self.AuthenticationRules" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AuthenticationRules_Rights_Detail" EntityType="Self.AuthenticationRules_Rights_Detail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CNF_AppConfiguration" EntityType="Self.CNF_AppConfiguration" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CNF_Bank" EntityType="Self.CNF_Bank" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CNF_IncomeType" EntityType="Self.CNF_IncomeType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CNF_ProductType" EntityType="Self.CNF_ProductType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CNF_Supplier" EntityType="Self.CNF_Supplier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOG_NotificationSendingData" EntityType="Self.LOG_NotificationSendingData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="POActivityDetail" EntityType="Self.POActivityDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="POExpenseDetail" EntityType="Self.POExpenseDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="POIncome" EntityType="Self.POIncome" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="POInventoryDetail" EntityType="Self.POInventoryDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="POInventoryMaster" EntityType="Self.POInventoryMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="POPaymentDisbursement" EntityType="Self.POPaymentDisbursement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="POPaymentDisbursementDetail" EntityType="Self.POPaymentDisbursementDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="POSaleDetail" EntityType="Self.POSaleDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SAL_InvoiceDetail" EntityType="Self.SAL_InvoiceDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SAL_InvoiceMaster" EntityType="Self.SAL_InvoiceMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SAL_RateList" EntityType="Self.SAL_RateList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SAL_RateListDetail" EntityType="Self.SAL_RateListDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SMSCampaign" EntityType="Self.SMSCampaign" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SMSCampaignDetail" EntityType="Self.SMSCampaignDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STK_productMaster" EntityType="Self.STK_productMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STK_UOM" EntityType="Self.STK_UOM" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RetailDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="POInventoryDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderID" Type="Int32" />
+          <Property Name="ProductCode" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="RetailPrice" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Qty" Type="Int32" />
+          <Property Name="ProductDiscount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="DealerPrice" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="NetProductDiscPct" Type="Decimal" Precision="7" Scale="4" />
+          <Property Name="NetDealerPrice" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Remarks" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="DealerDiscPct" Type="Decimal" Precision="7" Scale="4" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="LastModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsManualRate" Type="Boolean" />
+        </EntityType>
+        <EntityContainer Name="RetailDBEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="POInventoryDetails" EntityType="Self.POInventoryDetail" />
+          <EntitySet Name="POSaleDetails" EntityType="RetailDBModel.POSaleDetail" />
+          <EntitySet Name="POExpenseDetails" EntityType="RetailDBModel.POExpenseDetail" />
+          <EntitySet Name="POInventoryMasters" EntityType="RetailDBModel.POInventoryMaster" />
+          <FunctionImport Name="sp_rp_dailExpenseDetail" ReturnType="Collection(RetailDBModel.sp_rp_dailExpenseDetail_Result)">
+            <Parameter Name="fromDate" Mode="In" Type="DateTime" />
+            <Parameter Name="toDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="sp_rp_POSCustomerList" ReturnType="Collection(RetailDBModel.sp_rp_POSCustomerList_Result)" />
+          <FunctionImport Name="sp_calculateInventoryDealerRate">
+          <Parameter Name="OrderID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="POActivityDetails" EntityType="RetailDBModel.POActivityDetail" />
+          <FunctionImport Name="sp_TopSellingItemOverviewReport" ReturnType="Collection(RetailDBModel.sp_TopSellingItemOverviewReport_Result)">
+          <Parameter Name="PeriodTypeID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="AuthenticationRules" EntityType="RetailDBModel.AuthenticationRule" />
+          <EntitySet Name="CNF_AppConfiguration" EntityType="RetailDBModel.CNF_AppConfiguration" />
+          <EntitySet Name="CNF_Supplier" EntityType="RetailDBModel.CNF_Supplier" />
+          <EntitySet Name="CNF_Bank" EntityType="RetailDBModel.CNF_Bank" />
+          <EntitySet Name="CNF_ProductType" EntityType="RetailDBModel.CNF_ProductType" />
+          <EntitySet Name="STK_UOM" EntityType="RetailDBModel.STK_UOM" />
+          <EntitySet Name="SAL_RateListDetail" EntityType="RetailDBModel.SAL_RateListDetail" />
+          <EntitySet Name="SAL_RateList" EntityType="RetailDBModel.SAL_RateList" />
+          <EntitySet Name="SAL_InvoiceDetail" EntityType="RetailDBModel.SAL_InvoiceDetail" />
+          <FunctionImport Name="sp_saleInvoice_itemDetailForReturn" ReturnType="Collection(RetailDBModel.sp_saleInvoice_itemDetailForReturn_Result)">
+          <Parameter Name="InvoiceNo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Get_EffectiveProductRate" ReturnType="Collection(Decimal)">
+            <Parameter Name="ProductCode" Mode="In" Type="String" />
+            <Parameter Name="InvoiceDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="sp_rp_RegisterSaleInvoiceDetail" ReturnType="Collection(RetailDBModel.sp_rp_RegisterSaleInvoiceDetail_Result)">
+            <Parameter Name="fromDate" Mode="In" Type="DateTime" />
+            <Parameter Name="toDate" Mode="In" Type="DateTime" />
+            <Parameter Name="invoiceNo" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="SAL_InvoiceMaster" EntityType="RetailDBModel.SAL_InvoiceMaster" />
+          <FunctionImport Name="sp_dailyStockReport" ReturnType="Collection(String)">
+          <Parameter Name="reportDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="sp_rp_productBarcode" ReturnType="Collection(RetailDBModel.sp_rp_productBarcode_Result)">
+          <Parameter Name="supplierID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="CNF_IncomeType" EntityType="RetailDBModel.CNF_IncomeType" />
+          <EntitySet Name="POIncomes" EntityType="RetailDBModel.POIncome" />
+          <EntitySet Name="POPaymentDisbursementDetails" EntityType="RetailDBModel.POPaymentDisbursementDetail" />
+          <EntitySet Name="POPaymentDisbursements" EntityType="RetailDBModel.POPaymentDisbursement" />
+          <FunctionImport Name="sp_rp_orderInvoiceDetailReport" ReturnType="Collection(RetailDBModel.sp_rp_orderInvoiceDetailReport_Result)">
+            <Parameter Name="orderID" Mode="In" Type="Int32" />
+            <Parameter Name="SupplierID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_rp_POPaymentHistoryDetailReport" ReturnType="Collection(RetailDBModel.sp_rp_POPaymentHistoryDetailReport_Result)">
+          <Parameter Name="SupplierID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_rp_dailyStock" ReturnType="Collection(RetailDBModel.sp_rp_dailyStock_Result)">
+          <Parameter Name="reportDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="sp_rp_dailySaleStat" ReturnType="Collection(RetailDBModel.sp_rp_dailySaleStat_Result)">
+            <Parameter Name="fromDate" Mode="In" Type="DateTime" />
+            <Parameter Name="toDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="sp_rp_MiscIncomeDetail" ReturnType="Collection(RetailDBModel.sp_rp_MiscIncomeDetail_Result)">
+            <Parameter Name="fromDate" Mode="In" Type="DateTime" />
+            <Parameter Name="toDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <EntitySet Name="STK_productMaster" EntityType="RetailDBModel.STK_productMaster" />
+          <FunctionImport Name="sp_dailySaleClosureHistoryDetail" ReturnType="Collection(RetailDBModel.sp_dailySaleClosureHistoryDetail_Result)">
+            <Parameter Name="fromDate" Mode="In" Type="DateTime" />
+            <Parameter Name="toDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="sp_rpt_StockInHandValueDetail" ReturnType="Collection(RetailDBModel.sp_rpt_StockInHandValueDetail_Result)" />
+          <FunctionImport Name="sp_rpt_ProductActivityDetail" ReturnType="Collection(RetailDBModel.sp_rpt_ProductActivityDetail_Result)">
+            <Parameter Name="fromDate" Mode="In" Type="DateTime" />
+            <Parameter Name="toDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <EntitySet Name="AuthenticationRules_Rights_Detail" EntityType="RetailDBModel.AuthenticationRules_Rights_Detail" />
+          <EntitySet Name="SMSCampaigns" EntityType="RetailDBModel.SMSCampaign" />
+          <EntitySet Name="SMSCampaignDetails" EntityType="RetailDBModel.SMSCampaignDetail" />
+          <FunctionImport Name="sp_POSCustomerSrhList" ReturnType="Collection(RetailDBModel.sp_POSCustomerSrhList_Result)" />
+          <EntitySet Name="LOG_NotificationSendingData" EntityType="RetailDBModel.LOG_NotificationSendingData" />
+        </EntityContainer>
+        <EntityType Name="POSaleDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SaleDate" Type="DateTime" Precision="3" />
+          <Property Name="CashInHand" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="SaleClosure" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ClosureBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="AdjustedExpense" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TotalSale" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="WithdrawCash" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="WithdrawBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsClosed" Type="Boolean" />
+          <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="AdjustedIncomeLoss" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="POCashAdjustment" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="POExpenseDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ExpenseDate" Type="DateTime" Precision="3" />
+          <Property Name="ExpenseType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ExpenseDesc" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="ExpenseAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="AdjustedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="POInventoryMaster">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrderDate" Type="DateTime" Precision="3" />
+          <Property Name="InvoiceNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="InvoiceDate" Type="DateTime" Precision="3" />
+          <Property Name="StdDisPct" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="BreakupDisPct" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CatDisPct" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="InvoiceAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="DueDate" Type="DateTime" Precision="3" />
+          <Property Name="PaymentDate" Type="DateTime" Precision="3" />
+          <Property Name="Reference" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentDisPct" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="FreightCharges" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="DealerDisPct" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="LastUpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="SupplierID" Type="Int32" />
+          <Property Name="PaymentStatus" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentAmount" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <ComplexType Name="sp_rp_dailExpenseDetail_Result">
+          <Property Type="DateTime" Name="ExpenseDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="ExpenseType" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ExpenseDesc" Nullable="true" MaxLength="1000" />
+          <Property Type="Decimal" Name="ExpenseAmount" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="Remarks" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="Status" Nullable="true" MaxLength="25" />
+          <Property Type="DateTime" Name="AdjustedDate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="sp_rp_POSCustomerList_Result">
+          <Property Type="DateTime" Name="InvoiceDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="SSName" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Phone" Nullable="true" MaxLength="100" />
+          <Property Type="Double" Name="BuyingWorth" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="POActivityDetail">
+          <Key>
+            <PropertyRef Name="ActivityID" />
+          </Key>
+          <Property Name="ActivityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ActivityDate" Type="DateTime" Precision="3" />
+          <Property Name="SourceProductCode" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="SourceProductQty" Type="Int32" />
+          <Property Name="TargetProductCode" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="TargetProductQty" Type="Int32" />
+          <Property Name="ActivityType" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="CompletionDate" Type="DateTime" Precision="3" />
+          <Property Name="TargetLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ActivityDetailDesc" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="LastUpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="NetDealerPrice" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="UserID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+        </EntityType>
+        <ComplexType Name="sp_TopSellingItemOverviewReport_Result">
+          <Property Type="String" Name="ProductCode" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ProductName" Nullable="true" MaxLength="300" />
+          <Property Type="Int32" Name="SoldQty" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="AuthenticationRule">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Pass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Employee" Type="Boolean" />
+          <Property Name="Customer" Type="Boolean" />
+          <Property Name="dtstamp" Type="DateTime" Precision="3" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Ibsales" Type="Boolean" />
+          <Property Name="Ibinventory" Type="Boolean" />
+          <Property Name="IbReports" Type="Boolean" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="IbFinance" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="CNF_AppConfiguration">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="BusinessCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BusinessName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BusinessShortName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="BusinessAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="LandLine" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NotificationEmail" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="SalesNotification" Type="Boolean" />
+          <Property Name="SalesClosureNotification" Type="Boolean" />
+          <Property Name="DailyStockNotification" Type="Boolean" />
+          <Property Name="PaymentDays" Type="Int32" />
+          <Property Name="FirstPaymentNotification" Type="Boolean" />
+          <Property Name="FirstNotificationDaysBefore" Type="Int32" />
+          <Property Name="SecPaymentNotification" Type="Boolean" />
+          <Property Name="SecNotificationDaysBefore" Type="Int32" />
+          <Property Name="ThirdPaymentNotification" Type="Boolean" />
+          <Property Name="ThirdNotificationDaysBefore" Type="Int32" />
+          <Property Name="LowStockNotification" Type="Boolean" />
+          <Property Name="DefaultBankID" Type="Int32" />
+          <Property Name="AccountNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="NotificationEmailProfile" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="DailyExpenseNotification" Type="Boolean" />
+          <Property Name="SMSGateWayURL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="SMSGateWayUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SMSGateWayPwd" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="SalesSMSNotification" Type="Boolean" />
+          <Property Name="SMSCountryCode" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CNF_Supplier">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BusinessName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ShortName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="BusinessType" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="ContactPerson" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="LandLine" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="DefaultBankID" Type="Int32" />
+          <Property Name="AccountNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentDays" Type="Int32" />
+        </EntityType>
+        <EntityType Name="CNF_Bank">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ShortName" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="CNF_ProductType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="STK_UOM">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UOMName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dtStamp" Type="DateTime" Precision="0" />
+          <Property Name="LoginHistoryId" Type="Int32" />
+          <Property Name="CCode" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SAL_RateListDetail">
+          <Key>
+            <PropertyRef Name="RateListId" />
+            <PropertyRef Name="ProductCode" />
+          </Key>
+          <Property Name="RateListId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProductCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Rate" Type="Double" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dtStamp" Type="DateTime" Precision="0" />
+          <Property Name="LoginHistoryId" Type="Int32" />
+          <Property Name="SRRate" Type="Double" />
+          <Property Name="AutoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CCode" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SAL_RateList">
+          <Key>
+            <PropertyRef Name="RateListId" />
+          </Key>
+          <Property Name="RateListId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dtStamp" Type="DateTime" Precision="0" />
+          <Property Name="TerrId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="LoginHistoryId" Type="Int32" />
+          <Property Name="CCode" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SAL_InvoiceDetail">
+          <Key>
+            <PropertyRef Name="InvoiceNo" />
+            <PropertyRef Name="AutoID" />
+          </Key>
+          <Property Name="InvoiceNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AutoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Qty" Type="Int32" />
+          <Property Name="Rate" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="LoginHistoryId" Type="Int32" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ListRate" Type="Double" />
+          <Property Name="DisP" Type="Double" />
+          <Property Name="CCode" Type="Int32" />
+          <Property Name="NetRate" Type="Double" />
+          <Property Name="DisAmt" Type="Double" />
+          <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ReferenceID" Type="Int32" />
+        </EntityType>
+        <ComplexType Name="sp_saleInvoice_itemDetailForReturn_Result">
+          <Property Type="String" Name="InvoiceNo" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="AutoID" Nullable="false" />
+          <Property Type="String" Name="ProductCode" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="Qty" Nullable="true" />
+          <Property Type="Int32" Name="PrevReturnedQty" Nullable="true" />
+          <Property Type="Int32" Name="AvailableQty" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_rp_RegisterSaleInvoiceDetail_Result">
+          <Property Type="String" Name="InvoiceNo" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="InvoiceDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="InvoiceType" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ReferenceNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Phone" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="SSName" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="InvoiceStatus" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="UserName" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="receivedAmount" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="balanceAmount" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="ProductCode" Nullable="false" MaxLength="50" />
+          <Property Type="Decimal" Name="Rate" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="Qty" Nullable="true" />
+          <Property Type="Double" Name="DisP" Nullable="true" />
+          <Property Type="Double" Name="DisAmt" Nullable="true" />
+          <Property Type="Double" Name="NetRate" Nullable="true" />
+          <Property Type="String" Name="ItemStatus" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="BusinessName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="BusinessShortName" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="BusinessAddress" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="BusinessMobile" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="BusinessLandLine" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="BusinessEmail" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="SAL_InvoiceMaster">
+          <Key>
+            <PropertyRef Name="InvoiceNo" />
+            <PropertyRef Name="CCode" />
+          </Key>
+          <Property Name="InvoiceNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="InvoiceDate" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LoginHistoryID" Type="Int32" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dtStamp" Type="DateTime" Precision="3" />
+          <Property Name="PostedBy_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PostedDate" Type="DateTime" Precision="3" />
+          <Property Name="Invoiceof" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="AutoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AddaId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GodownId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OrderNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DCNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OrderDate" Type="DateTime" Precision="3" />
+          <Property Name="DeliveryDate" Type="DateTime" Precision="3" />
+          <Property Name="SSName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="SSAddress" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="SSCity" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Bilty" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="CCode" Type="Int32" Nullable="false" />
+          <Property Name="ReferenceNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="InvoiceType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CashAcNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DisAcNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Discount" Type="Double" />
+          <Property Name="Phone" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsNotify" Type="Boolean" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="LastModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ReceivedAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="BalanceAmount" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <ComplexType Name="sp_rp_productBarcode_Result">
+          <Property Type="String" Name="BusinessName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="ProductID" Nullable="false" MaxLength="50" />
+          <Property Type="Decimal" Name="effectiveRate" Nullable="true" Precision="18" Scale="0" />
+        </ComplexType>
+        <EntityType Name="CNF_IncomeType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="POIncome">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PostingDate" Type="DateTime" Precision="3" />
+          <Property Name="IncomeType" Type="Int32" />
+          <Property Name="PostingAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Reference" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="LastUpdatedBy" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="AdjustedInPOS" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="POPaymentDisbursementDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderID" Type="Int32" />
+          <Property Name="DisbursementID" Type="Int32" />
+          <Property Name="PaidPayment" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="AdjustedPayment" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="POPaymentDisbursement">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SupplierID" Type="Int32" />
+          <Property Name="PaymentMode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentReference" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentBankID" Type="Int32" />
+          <Property Name="PaymentAccount" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="AdjustmentAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PaymentDate" Type="DateTime" Precision="3" />
+          <Property Name="Remarks" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ReferenceDocument" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="sp_rp_orderInvoiceDetailReport_Result">
+          <Property Type="String" Name="ShortName" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="OrderNo" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="OrderDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="InvoiceNo" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="InvoiceDate" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="InvoiceAmount" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="DateTime" Name="DueDate" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="StdDisPct" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="BreakupDisPct" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="CatDisPct" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="DateTime" Name="PaymentDate" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="PaymentDisPct" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="ProductCode" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="ProductName" Nullable="true" MaxLength="300" />
+          <Property Type="Decimal" Name="RetailPrice" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="ProductDiscount" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Int32" Name="Qty" Nullable="true" />
+          <Property Type="Decimal" Name="DealerPrice" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="NetDealerPrice" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="NetProductDiscPct" Nullable="true" Precision="7" Scale="4" />
+          <Property Type="String" Name="PaymentStatus" Nullable="false" MaxLength="15" />
+          <Property Type="Decimal" Name="PaymentAmount" Nullable="true" Precision="18" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="sp_rp_POPaymentHistoryDetailReport_Result">
+          <Property Type="String" Name="SupplierName" Nullable="true" MaxLength="25" />
+          <Property Type="Int32" Name="DisbursementID" Nullable="true" />
+          <Property Type="DateTime" Name="PaymentDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="PaymentMode" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="BankName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PaymentAccount" Nullable="true" MaxLength="25" />
+          <Property Type="Decimal" Name="PaymentAmount" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="PaymentReference" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Remarks" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="InvoiceNo" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="PaidPayment" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="AdjustedPayment" Nullable="true" Precision="18" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="sp_rp_dailyStock_Result">
+          <Property Type="String" Name="ShortName" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="ProductID" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ProductShortName" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="ProductName" Nullable="true" MaxLength="300" />
+          <Property Type="Double" Name="ReOrdQty" Nullable="true" />
+          <Property Type="Double" Name="MinLevel" Nullable="true" />
+          <Property Type="Int32" Name="Stock" Nullable="false" />
+          <Property Type="Int32" Name="PreSell" Nullable="false" />
+          <Property Type="Int32" Name="currSell" Nullable="false" />
+          <Property Type="Int32" Name="StockInHand" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_rp_dailySaleStat_Result">
+          <Property Type="DateTime" Name="SaleDate" Nullable="true" Precision="23" />
+          <Property Type="Double" Name="TotalSale" Nullable="true" />
+          <Property Type="Double" Name="TotalProfit" Nullable="true" />
+          <Property Type="Decimal" Name="TotalAdjustedExpense" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="TotalPendingExpense" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="AdjustedPOSIncomeLoss" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="OtherIncomeLoss" Nullable="true" Precision="38" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="sp_rp_MiscIncomeDetail_Result">
+          <Property Type="String" Name="IncomeType" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="PostingDate" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="PostingAmount" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Boolean" Name="AdjustedInPOS" Nullable="true" />
+          <Property Type="String" Name="Reference" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <EntityType Name="STK_productMaster">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProductName" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Unit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Rate" Type="Decimal" Precision="10" Scale="3" />
+          <Property Name="Category" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="UOMID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StdPackingID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PurchaserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BlockTrans" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SupplierId" Type="Int32" />
+          <Property Name="OpDate" Type="DateTime" Precision="0" />
+          <Property Name="dtStamp" Type="DateTime" Precision="0" />
+          <Property Name="MinLevel" Type="Double" />
+          <Property Name="MaxLevel" Type="Double" />
+          <Property Name="ReOrdQty" Type="Double" />
+          <Property Name="ACNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GroupId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SubGroupId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LeadTime" Type="Double" />
+          <Property Name="MPCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LoginHistoryId" Type="Int32" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CT" Type="Double" />
+          <Property Name="StdWeight" Type="Double" />
+          <Property Name="Consumable" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ProdRate" Type="Double" />
+          <Property Name="OldCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AutoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OldPurchaserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OldSupplierId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ACNoCons" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProductNameUrdu" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="MatCateID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CCode" Type="Int32" />
+          <Property Name="SRate" Type="Double" />
+          <Property Name="DisP" Type="Double" />
+          <Property Name="ProductTypeID" Type="Int32" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="ShortName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="POSShortcutBtn" Type="Boolean" />
+          <Property Name="POSShortcutBtnSeq" Type="Int32" />
+        </EntityType>
+        <ComplexType Name="sp_dailySaleClosureHistoryDetail_Result">
+          <Property Type="DateTime" Name="SaleDate" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="CashInHand" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="TotalSale" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="AdjustedExpense" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="AdjustedIncomeLoss" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="WithdrawCash" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="String" Name="WithdrawBy" Nullable="false" MaxLength="50" />
+          <Property Type="Decimal" Name="POCashAdjustment" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="SaleClosure" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Boolean" Name="Closed" Nullable="false" />
+          <Property Type="String" Name="ClosureBy" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_rpt_StockInHandValueDetail_Result">
+          <Property Type="String" Name="SupShortName" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="ProductCode" Nullable="true" MaxLength="25" />
+          <Property Type="Int32" Name="PrdQtyInHand" Nullable="true" />
+          <Property Type="Decimal" Name="PrdInHandDealerValue" Nullable="true" Precision="38" Scale="6" />
+          <Property Type="Decimal" Name="PrdInHandRetailValue" Nullable="true" Precision="29" Scale="0" />
+          <Property Type="Decimal" Name="PrdInHandMarginRate" Nullable="true" Precision="38" Scale="6" />
+        </ComplexType>
+        <ComplexType Name="sp_rpt_ProductActivityDetail_Result">
+          <Property Type="DateTime" Name="ActivityDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="SourceProductCode" Nullable="true" MaxLength="25" />
+          <Property Type="Int32" Name="SourceProductQty" Nullable="true" />
+          <Property Type="String" Name="TargetProductCode" Nullable="true" MaxLength="25" />
+          <Property Type="Int32" Name="TargetProductQty" Nullable="true" />
+          <Property Type="String" Name="ActivityType" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="Status" Nullable="true" MaxLength="25" />
+          <Property Type="DateTime" Name="CompletionDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="TargetLocation" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ActivityDetailDesc" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="UserID" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="AuthenticationRules_Rights_Detail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ObjectName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Viewable" Type="Boolean" />
+          <Property Name="Updatable" Type="Boolean" />
+          <Property Name="Deletable" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="SMSCampaign">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CampaignName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CampaignMessage" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SMSCampaignDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CampaignID" Type="Int32" />
+          <Property Name="ContactNo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="SendResponse" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="SendStatus" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+        </EntityType>
+        <ComplexType Name="sp_POSCustomerSrhList_Result">
+          <Property Type="String" Name="ContactNo" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="CustomerName" Nullable="true" MaxLength="250" />
+          <Property Type="Double" Name="totalBuyingWorth" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="LOG_NotificationSendingData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NotificationMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NotificationType" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="NotificationResponse" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="NotificationStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RetailDBModelStoreContainer" CdmEntityContainer="RetailDBEntities1">
+          <EntitySetMapping Name="POInventoryDetails">
+            <EntityTypeMapping TypeName="RetailDBModel.POInventoryDetail">
+              <MappingFragment StoreEntitySet="POInventoryDetail">
+                <ScalarProperty Name="IsManualRate" ColumnName="IsManualRate" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="DealerDiscPct" ColumnName="DealerDiscPct" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="NetDealerPrice" ColumnName="NetDealerPrice" />
+                <ScalarProperty Name="NetProductDiscPct" ColumnName="NetProductDiscPct" />
+                <ScalarProperty Name="DealerPrice" ColumnName="DealerPrice" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="RetailPrice" ColumnName="RetailPrice" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="ProductDiscount" ColumnName="ProductDiscount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="POSaleDetails">
+            <EntityTypeMapping TypeName="RetailDBModel.POSaleDetail">
+              <MappingFragment StoreEntitySet="POSaleDetail">
+                <ScalarProperty Name="POCashAdjustment" ColumnName="POCashAdjustment" />
+                <ScalarProperty Name="AdjustedIncomeLoss" ColumnName="AdjustedIncomeLoss" />
+                <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+                <ScalarProperty Name="IsClosed" ColumnName="IsClosed" />
+                <ScalarProperty Name="WithdrawBy" ColumnName="WithdrawBy" />
+                <ScalarProperty Name="WithdrawCash" ColumnName="WithdrawCash" />
+                <ScalarProperty Name="TotalSale" ColumnName="TotalSale" />
+                <ScalarProperty Name="AdjustedExpense" ColumnName="AdjustedExpense" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="ClosureBy" ColumnName="ClosureBy" />
+                <ScalarProperty Name="SaleClosure" ColumnName="SaleClosure" />
+                <ScalarProperty Name="CashInHand" ColumnName="CashInHand" />
+                <ScalarProperty Name="SaleDate" ColumnName="SaleDate" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="POExpenseDetails">
+            <EntityTypeMapping TypeName="RetailDBModel.POExpenseDetail">
+              <MappingFragment StoreEntitySet="POExpenseDetail">
+                <ScalarProperty Name="AdjustedDate" ColumnName="AdjustedDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="ExpenseAmount" ColumnName="ExpenseAmount" />
+                <ScalarProperty Name="ExpenseDesc" ColumnName="ExpenseDesc" />
+                <ScalarProperty Name="ExpenseType" ColumnName="ExpenseType" />
+                <ScalarProperty Name="ExpenseDate" ColumnName="ExpenseDate" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="POInventoryMasters">
+            <EntityTypeMapping TypeName="RetailDBModel.POInventoryMaster">
+              <MappingFragment StoreEntitySet="POInventoryMaster">
+                <ScalarProperty Name="PaymentAmount" ColumnName="PaymentAmount" />
+                <ScalarProperty Name="PaymentStatus" ColumnName="PaymentStatus" />
+                <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+                <ScalarProperty Name="LastUpdateDate" ColumnName="LastUpdateDate" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="DealerDisPct" ColumnName="DealerDisPct" />
+                <ScalarProperty Name="FreightCharges" ColumnName="FreightCharges" />
+                <ScalarProperty Name="PaymentDisPct" ColumnName="PaymentDisPct" />
+                <ScalarProperty Name="Reference" ColumnName="Reference" />
+                <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+                <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+                <ScalarProperty Name="InvoiceAmount" ColumnName="InvoiceAmount" />
+                <ScalarProperty Name="CatDisPct" ColumnName="CatDisPct" />
+                <ScalarProperty Name="BreakupDisPct" ColumnName="BreakupDisPct" />
+                <ScalarProperty Name="StdDisPct" ColumnName="StdDisPct" />
+                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+                <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_rp_dailExpenseDetail" FunctionName="RetailDBModel.Store.sp_rp_dailExpenseDetail">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RetailDBModel.sp_rp_dailExpenseDetail_Result">
+                <ScalarProperty Name="ExpenseDate" ColumnName="ExpenseDate" />
+                <ScalarProperty Name="ExpenseType" ColumnName="ExpenseType" />
+                <ScalarProperty Name="ExpenseDesc" ColumnName="ExpenseDesc" />
+                <ScalarProperty Name="ExpenseAmount" ColumnName="ExpenseAmount" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="AdjustedDate" ColumnName="AdjustedDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_rp_POSCustomerList" FunctionName="RetailDBModel.Store.sp_rp_POSCustomerList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RetailDBModel.sp_rp_POSCustomerList_Result">
+                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+                <ScalarProperty Name="SSName" ColumnName="SSName" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="BuyingWorth" ColumnName="BuyingWorth" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_calculateInventoryDealerRate" FunctionName="RetailDBModel.Store.sp_calculateInventoryDealerRate" />
+          <EntitySetMapping Name="POActivityDetails">
+            <EntityTypeMapping TypeName="RetailDBModel.POActivityDetail">
+              <MappingFragment StoreEntitySet="POActivityDetail">
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="NetDealerPrice" ColumnName="NetDealerPrice" />
+                <ScalarProperty Name="LastUpdatedOn" ColumnName="LastUpdatedOn" />
+                <ScalarProperty Name="ActivityDetailDesc" ColumnName="ActivityDetailDesc" />
+                <ScalarProperty Name="TargetLocation" ColumnName="TargetLocation" />
+                <ScalarProperty Name="CompletionDate" ColumnName="CompletionDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ActivityType" ColumnName="ActivityType" />
+                <ScalarProperty Name="TargetProductQty" ColumnName="TargetProductQty" />
+                <ScalarProperty Name="TargetProductCode" ColumnName="TargetProductCode" />
+                <ScalarProperty Name="SourceProductQty" ColumnName="SourceProductQty" />
+                <ScalarProperty Name="SourceProductCode" ColumnName="SourceProductCode" />
+                <ScalarProperty Name="ActivityDate" ColumnName="ActivityDate" />
+                <ScalarProperty Name="ActivityID" ColumnName="ActivityID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_TopSellingItemOverviewReport" FunctionName="RetailDBModel.Store.sp_TopSellingItemOverviewReport">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RetailDBModel.sp_TopSellingItemOverviewReport_Result">
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="SoldQty" ColumnName="SoldQty" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="AuthenticationRules">
+            <EntityTypeMapping TypeName="RetailDBModel.AuthenticationRule">
+              <MappingFragment StoreEntitySet="AuthenticationRules">
+                <ScalarProperty Name="IbFinance" ColumnName="IbFinance" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="IbReports" ColumnName="IbReports" />
+                <ScalarProperty Name="Ibinventory" ColumnName="Ibinventory" />
+                <ScalarProperty Name="Ibsales" ColumnName="Ibsales" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="dtstamp" ColumnName="dtstamp" />
+                <ScalarProperty Name="Customer" ColumnName="Customer" />
+                <ScalarProperty Name="Employee" ColumnName="Employee" />
+                <ScalarProperty Name="Pass" ColumnName="Pass" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CNF_AppConfiguration">
+            <EntityTypeMapping TypeName="RetailDBModel.CNF_AppConfiguration">
+              <MappingFragment StoreEntitySet="CNF_AppConfiguration">
+                <ScalarProperty Name="SMSCountryCode" ColumnName="SMSCountryCode" />
+                <ScalarProperty Name="SalesSMSNotification" ColumnName="SalesSMSNotification" />
+                <ScalarProperty Name="SMSGateWayPwd" ColumnName="SMSGateWayPwd" />
+                <ScalarProperty Name="SMSGateWayUser" ColumnName="SMSGateWayUser" />
+                <ScalarProperty Name="SMSGateWayURL" ColumnName="SMSGateWayURL" />
+                <ScalarProperty Name="DailyExpenseNotification" ColumnName="DailyExpenseNotification" />
+                <ScalarProperty Name="NotificationEmailProfile" ColumnName="NotificationEmailProfile" />
+                <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+                <ScalarProperty Name="DefaultBankID" ColumnName="DefaultBankID" />
+                <ScalarProperty Name="LowStockNotification" ColumnName="LowStockNotification" />
+                <ScalarProperty Name="ThirdNotificationDaysBefore" ColumnName="ThirdNotificationDaysBefore" />
+                <ScalarProperty Name="ThirdPaymentNotification" ColumnName="ThirdPaymentNotification" />
+                <ScalarProperty Name="SecNotificationDaysBefore" ColumnName="SecNotificationDaysBefore" />
+                <ScalarProperty Name="SecPaymentNotification" ColumnName="SecPaymentNotification" />
+                <ScalarProperty Name="FirstNotificationDaysBefore" ColumnName="FirstNotificationDaysBefore" />
+                <ScalarProperty Name="FirstPaymentNotification" ColumnName="FirstPaymentNotification" />
+                <ScalarProperty Name="PaymentDays" ColumnName="PaymentDays" />
+                <ScalarProperty Name="DailyStockNotification" ColumnName="DailyStockNotification" />
+                <ScalarProperty Name="SalesClosureNotification" ColumnName="SalesClosureNotification" />
+                <ScalarProperty Name="SalesNotification" ColumnName="SalesNotification" />
+                <ScalarProperty Name="NotificationEmail" ColumnName="NotificationEmail" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="LandLine" ColumnName="LandLine" />
+                <ScalarProperty Name="BusinessAddress" ColumnName="BusinessAddress" />
+                <ScalarProperty Name="BusinessShortName" ColumnName="BusinessShortName" />
+                <ScalarProperty Name="BusinessName" ColumnName="BusinessName" />
+                <ScalarProperty Name="BusinessCode" ColumnName="BusinessCode" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CNF_Supplier">
+            <EntityTypeMapping TypeName="RetailDBModel.CNF_Supplier">
+              <MappingFragment StoreEntitySet="CNF_Supplier">
+                <ScalarProperty Name="PaymentDays" ColumnName="PaymentDays" />
+                <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+                <ScalarProperty Name="DefaultBankID" ColumnName="DefaultBankID" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="LandLine" ColumnName="LandLine" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+                <ScalarProperty Name="BusinessType" ColumnName="BusinessType" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="BusinessName" ColumnName="BusinessName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CNF_Bank">
+            <EntityTypeMapping TypeName="RetailDBModel.CNF_Bank">
+              <MappingFragment StoreEntitySet="CNF_Bank">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CNF_ProductType">
+            <EntityTypeMapping TypeName="RetailDBModel.CNF_ProductType">
+              <MappingFragment StoreEntitySet="CNF_ProductType">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STK_UOM">
+            <EntityTypeMapping TypeName="RetailDBModel.STK_UOM">
+              <MappingFragment StoreEntitySet="STK_UOM">
+                <ScalarProperty Name="CCode" ColumnName="CCode" />
+                <ScalarProperty Name="LoginHistoryId" ColumnName="LoginHistoryId" />
+                <ScalarProperty Name="dtStamp" ColumnName="dtStamp" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="UOMName" ColumnName="UOMName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SAL_RateListDetail">
+            <EntityTypeMapping TypeName="RetailDBModel.SAL_RateListDetail">
+              <MappingFragment StoreEntitySet="SAL_RateListDetail">
+                <ScalarProperty Name="CCode" ColumnName="CCode" />
+                <ScalarProperty Name="AutoId" ColumnName="AutoId" />
+                <ScalarProperty Name="SRRate" ColumnName="SRRate" />
+                <ScalarProperty Name="LoginHistoryId" ColumnName="LoginHistoryId" />
+                <ScalarProperty Name="dtStamp" ColumnName="dtStamp" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="RateListId" ColumnName="RateListId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SAL_RateList">
+            <EntityTypeMapping TypeName="RetailDBModel.SAL_RateList">
+              <MappingFragment StoreEntitySet="SAL_RateList">
+                <ScalarProperty Name="CCode" ColumnName="CCode" />
+                <ScalarProperty Name="LoginHistoryId" ColumnName="LoginHistoryId" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="TerrId" ColumnName="TerrId" />
+                <ScalarProperty Name="dtStamp" ColumnName="dtStamp" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="RateListId" ColumnName="RateListId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SAL_InvoiceDetail">
+            <EntityTypeMapping TypeName="RetailDBModel.SAL_InvoiceDetail">
+              <MappingFragment StoreEntitySet="SAL_InvoiceDetail">
+                <ScalarProperty Name="ReferenceID" ColumnName="ReferenceID" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="DisAmt" ColumnName="DisAmt" />
+                <ScalarProperty Name="NetRate" ColumnName="NetRate" />
+                <ScalarProperty Name="CCode" ColumnName="CCode" />
+                <ScalarProperty Name="DisP" ColumnName="DisP" />
+                <ScalarProperty Name="ListRate" ColumnName="ListRate" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="LoginHistoryId" ColumnName="LoginHistoryId" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="AutoID" ColumnName="AutoID" />
+                <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_saleInvoice_itemDetailForReturn" FunctionName="RetailDBModel.Store.sp_saleInvoice_itemDetailForReturn">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RetailDBModel.sp_saleInvoice_itemDetailForReturn_Result">
+                <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+                <ScalarProperty Name="AutoID" ColumnName="AutoID" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="PrevReturnedQty" ColumnName="PrevReturnedQty" />
+                <ScalarProperty Name="AvailableQty" ColumnName="AvailableQty" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_rp_RegisterSaleInvoiceDetail" FunctionName="RetailDBModel.Store.sp_rp_RegisterSaleInvoiceDetail">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RetailDBModel.sp_rp_RegisterSaleInvoiceDetail_Result">
+                <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+                <ScalarProperty Name="InvoiceType" ColumnName="InvoiceType" />
+                <ScalarProperty Name="ReferenceNo" ColumnName="ReferenceNo" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="SSName" ColumnName="SSName" />
+                <ScalarProperty Name="InvoiceStatus" ColumnName="InvoiceStatus" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="receivedAmount" ColumnName="receivedAmount" />
+                <ScalarProperty Name="balanceAmount" ColumnName="balanceAmount" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="DisP" ColumnName="DisP" />
+                <ScalarProperty Name="DisAmt" ColumnName="DisAmt" />
+                <ScalarProperty Name="NetRate" ColumnName="NetRate" />
+                <ScalarProperty Name="ItemStatus" ColumnName="ItemStatus" />
+                <ScalarProperty Name="BusinessName" ColumnName="BusinessName" />
+                <ScalarProperty Name="BusinessShortName" ColumnName="BusinessShortName" />
+                <ScalarProperty Name="BusinessAddress" ColumnName="BusinessAddress" />
+                <ScalarProperty Name="BusinessMobile" ColumnName="BusinessMobile" />
+                <ScalarProperty Name="BusinessLandLine" ColumnName="BusinessLandLine" />
+                <ScalarProperty Name="BusinessEmail" ColumnName="BusinessEmail" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="SAL_InvoiceMaster">
+            <EntityTypeMapping TypeName="RetailDBModel.SAL_InvoiceMaster">
+              <MappingFragment StoreEntitySet="SAL_InvoiceMaster">
+                <ScalarProperty Name="BalanceAmount" ColumnName="BalanceAmount" />
+                <ScalarProperty Name="ReceivedAmount" ColumnName="ReceivedAmount" />
+                <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+                <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="IsNotify" ColumnName="IsNotify" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="DisAcNo" ColumnName="DisAcNo" />
+                <ScalarProperty Name="CashAcNo" ColumnName="CashAcNo" />
+                <ScalarProperty Name="InvoiceType" ColumnName="InvoiceType" />
+                <ScalarProperty Name="ReferenceNo" ColumnName="ReferenceNo" />
+                <ScalarProperty Name="CCode" ColumnName="CCode" />
+                <ScalarProperty Name="Bilty" ColumnName="Bilty" />
+                <ScalarProperty Name="SSCity" ColumnName="SSCity" />
+                <ScalarProperty Name="SSAddress" ColumnName="SSAddress" />
+                <ScalarProperty Name="SSName" ColumnName="SSName" />
+                <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="DCNo" ColumnName="DCNo" />
+                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+                <ScalarProperty Name="GodownId" ColumnName="GodownId" />
+                <ScalarProperty Name="AddaId" ColumnName="AddaId" />
+                <ScalarProperty Name="AutoID" ColumnName="AutoID" />
+                <ScalarProperty Name="Invoiceof" ColumnName="Invoiceof" />
+                <ScalarProperty Name="PostedDate" ColumnName="PostedDate" />
+                <ScalarProperty Name="PostedBy_Code" ColumnName="PostedBy_Code" />
+                <ScalarProperty Name="dtStamp" ColumnName="dtStamp" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="LoginHistoryID" ColumnName="LoginHistoryID" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="CustomerCode" ColumnName="CustomerCode" />
+                <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_dailyStockReport" FunctionName="RetailDBModel.Store.sp_dailyStockReport" />
+          <FunctionImportMapping FunctionImportName="sp_rp_productBarcode" FunctionName="RetailDBModel.Store.sp_rp_productBarcode">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RetailDBModel.sp_rp_productBarcode_Result">
+                <ScalarProperty Name="BusinessName" ColumnName="BusinessName" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="effectiveRate" ColumnName="effectiveRate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="CNF_IncomeType">
+            <EntityTypeMapping TypeName="RetailDBModel.CNF_IncomeType">
+              <MappingFragment StoreEntitySet="CNF_IncomeType">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="POIncomes">
+            <EntityTypeMapping TypeName="RetailDBModel.POIncome">
+              <MappingFragment StoreEntitySet="POIncome">
+                <ScalarProperty Name="AdjustedInPOS" ColumnName="AdjustedInPOS" />
+                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Reference" ColumnName="Reference" />
+                <ScalarProperty Name="PostingAmount" ColumnName="PostingAmount" />
+                <ScalarProperty Name="IncomeType" ColumnName="IncomeType" />
+                <ScalarProperty Name="PostingDate" ColumnName="PostingDate" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="POPaymentDisbursementDetails">
+            <EntityTypeMapping TypeName="RetailDBModel.POPaymentDisbursementDetail">
+              <MappingFragment StoreEntitySet="POPaymentDisbursementDetail">
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="AdjustedPayment" ColumnName="AdjustedPayment" />
+                <ScalarProperty Name="PaidPayment" ColumnName="PaidPayment" />
+                <ScalarProperty Name="DisbursementID" ColumnName="DisbursementID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="POPaymentDisbursements">
+            <EntityTypeMapping TypeName="RetailDBModel.POPaymentDisbursement">
+              <MappingFragment StoreEntitySet="POPaymentDisbursement">
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="ReferenceDocument" ColumnName="ReferenceDocument" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+                <ScalarProperty Name="AdjustmentAmount" ColumnName="AdjustmentAmount" />
+                <ScalarProperty Name="PaymentAmount" ColumnName="PaymentAmount" />
+                <ScalarProperty Name="PaymentAccount" ColumnName="PaymentAccount" />
+                <ScalarProperty Name="PaymentBankID" ColumnName="PaymentBankID" />
+                <ScalarProperty Name="PaymentReference" ColumnName="PaymentReference" />
+                <ScalarProperty Name="PaymentMode" ColumnName="PaymentMode" />
+                <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_rp_orderInvoiceDetailReport" FunctionName="RetailDBModel.Store.sp_rp_orderInvoiceDetailReport">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RetailDBModel.sp_rp_orderInvoiceDetailReport_Result">
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+                <ScalarProperty Name="InvoiceAmount" ColumnName="InvoiceAmount" />
+                <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+                <ScalarProperty Name="StdDisPct" ColumnName="StdDisPct" />
+                <ScalarProperty Name="BreakupDisPct" ColumnName="BreakupDisPct" />
+                <ScalarProperty Name="CatDisPct" ColumnName="CatDisPct" />
+                <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+                <ScalarProperty Name="PaymentDisPct" ColumnName="PaymentDisPct" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="RetailPrice" ColumnName="RetailPrice" />
+                <ScalarProperty Name="ProductDiscount" ColumnName="ProductDiscount" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="DealerPrice" ColumnName="DealerPrice" />
+                <ScalarProperty Name="NetDealerPrice" ColumnName="NetDealerPrice" />
+                <ScalarProperty Name="NetProductDiscPct" ColumnName="NetProductDiscPct" />
+                <ScalarProperty Name="PaymentStatus" ColumnName="PaymentStatus" />
+                <ScalarProperty Name="PaymentAmount" ColumnName="PaymentAmount" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_rp_POPaymentHistoryDetailReport" FunctionName="RetailDBModel.Store.sp_rp_POPaymentHistoryDetailReport">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RetailDBModel.sp_rp_POPaymentHistoryDetailReport_Result">
+                <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+                <ScalarProperty Name="DisbursementID" ColumnName="DisbursementID" />
+                <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+                <ScalarProperty Name="PaymentMode" ColumnName="PaymentMode" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+                <ScalarProperty Name="PaymentAccount" ColumnName="PaymentAccount" />
+                <ScalarProperty Name="PaymentAmount" ColumnName="PaymentAmount" />
+                <ScalarProperty Name="PaymentReference" ColumnName="PaymentReference" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+                <ScalarProperty Name="PaidPayment" ColumnName="PaidPayment" />
+                <ScalarProperty Name="AdjustedPayment" ColumnName="AdjustedPayment" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_rp_dailyStock" FunctionName="RetailDBModel.Store.sp_rp_dailyStock">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RetailDBModel.sp_rp_dailyStock_Result">
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ProductShortName" ColumnName="ProductShortName" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ReOrdQty" ColumnName="ReOrdQty" />
+                <ScalarProperty Name="MinLevel" ColumnName="MinLevel" />
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
+                <ScalarProperty Name="PreSell" ColumnName="PreSell" />
+                <ScalarProperty Name="currSell" ColumnName="currSell" />
+                <ScalarProperty Name="StockInHand" ColumnName="StockInHand" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_rp_dailySaleStat" FunctionName="RetailDBModel.Store.sp_rp_dailySaleStat">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RetailDBModel.sp_rp_dailySaleStat_Result">
+                <ScalarProperty Name="SaleDate" ColumnName="SaleDate" />
+                <ScalarProperty Name="TotalSale" ColumnName="TotalSale" />
+                <ScalarProperty Name="TotalProfit" ColumnName="TotalProfit" />
+                <ScalarProperty Name="TotalAdjustedExpense" ColumnName="TotalAdjustedExpense" />
+                <ScalarProperty Name="TotalPendingExpense" ColumnName="TotalPendingExpense" />
+                <ScalarProperty Name="AdjustedPOSIncomeLoss" ColumnName="AdjustedPOSIncomeLoss" />
+                <ScalarProperty Name="OtherIncomeLoss" ColumnName="OtherIncomeLoss" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_rp_MiscIncomeDetail" FunctionName="RetailDBModel.Store.sp_rp_MiscIncomeDetail">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RetailDBModel.sp_rp_MiscIncomeDetail_Result">
+                <ScalarProperty Name="IncomeType" ColumnName="IncomeType" />
+                <ScalarProperty Name="PostingDate" ColumnName="PostingDate" />
+                <ScalarProperty Name="PostingAmount" ColumnName="PostingAmount" />
+                <ScalarProperty Name="AdjustedInPOS" ColumnName="AdjustedInPOS" />
+                <ScalarProperty Name="Reference" ColumnName="Reference" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="STK_productMaster">
+            <EntityTypeMapping TypeName="RetailDBModel.STK_productMaster">
+              <MappingFragment StoreEntitySet="STK_productMaster">
+                <ScalarProperty Name="POSShortcutBtnSeq" ColumnName="POSShortcutBtnSeq" />
+                <ScalarProperty Name="POSShortcutBtn" ColumnName="POSShortcutBtn" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="ProductTypeID" ColumnName="ProductTypeID" />
+                <ScalarProperty Name="DisP" ColumnName="DisP" />
+                <ScalarProperty Name="SRate" ColumnName="SRate" />
+                <ScalarProperty Name="CCode" ColumnName="CCode" />
+                <ScalarProperty Name="MatCateID" ColumnName="MatCateID" />
+                <ScalarProperty Name="ProductNameUrdu" ColumnName="ProductNameUrdu" />
+                <ScalarProperty Name="ACNoCons" ColumnName="ACNoCons" />
+                <ScalarProperty Name="OldSupplierId" ColumnName="OldSupplierId" />
+                <ScalarProperty Name="OldPurchaserId" ColumnName="OldPurchaserId" />
+                <ScalarProperty Name="AutoId" ColumnName="AutoId" />
+                <ScalarProperty Name="OldCode" ColumnName="OldCode" />
+                <ScalarProperty Name="ProdRate" ColumnName="ProdRate" />
+                <ScalarProperty Name="Consumable" ColumnName="Consumable" />
+                <ScalarProperty Name="StdWeight" ColumnName="StdWeight" />
+                <ScalarProperty Name="CT" ColumnName="CT" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="LoginHistoryId" ColumnName="LoginHistoryId" />
+                <ScalarProperty Name="MPCode" ColumnName="MPCode" />
+                <ScalarProperty Name="LeadTime" ColumnName="LeadTime" />
+                <ScalarProperty Name="SubGroupId" ColumnName="SubGroupId" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="ACNo" ColumnName="ACNo" />
+                <ScalarProperty Name="ReOrdQty" ColumnName="ReOrdQty" />
+                <ScalarProperty Name="MaxLevel" ColumnName="MaxLevel" />
+                <ScalarProperty Name="MinLevel" ColumnName="MinLevel" />
+                <ScalarProperty Name="dtStamp" ColumnName="dtStamp" />
+                <ScalarProperty Name="OpDate" ColumnName="OpDate" />
+                <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+                <ScalarProperty Name="BlockTrans" ColumnName="BlockTrans" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="PurchaserId" ColumnName="PurchaserId" />
+                <ScalarProperty Name="StdPackingID" ColumnName="StdPackingID" />
+                <ScalarProperty Name="UOMID" ColumnName="UOMID" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_dailySaleClosureHistoryDetail" FunctionName="RetailDBModel.Store.sp_dailySaleClosureHistoryDetail">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RetailDBModel.sp_dailySaleClosureHistoryDetail_Result">
+                <ScalarProperty Name="SaleDate" ColumnName="SaleDate" />
+                <ScalarProperty Name="CashInHand" ColumnName="CashInHand" />
+                <ScalarProperty Name="TotalSale" ColumnName="TotalSale" />
+                <ScalarProperty Name="AdjustedExpense" ColumnName="AdjustedExpense" />
+                <ScalarProperty Name="AdjustedIncomeLoss" ColumnName="AdjustedIncomeLoss" />
+                <ScalarProperty Name="WithdrawCash" ColumnName="WithdrawCash" />
+                <ScalarProperty Name="WithdrawBy" ColumnName="WithdrawBy" />
+                <ScalarProperty Name="POCashAdjustment" ColumnName="POCashAdjustment" />
+                <ScalarProperty Name="SaleClosure" ColumnName="SaleClosure" />
+                <ScalarProperty Name="Closed" ColumnName="Closed" />
+                <ScalarProperty Name="ClosureBy" ColumnName="ClosureBy" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_rpt_StockInHandValueDetail" FunctionName="RetailDBModel.Store.sp_rpt_StockInHandValueDetail">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RetailDBModel.sp_rpt_StockInHandValueDetail_Result">
+                <ScalarProperty Name="SupShortName" ColumnName="SupShortName" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="PrdQtyInHand" ColumnName="PrdQtyInHand" />
+                <ScalarProperty Name="PrdInHandDealerValue" ColumnName="PrdInHandDealerValue" />
+                <ScalarProperty Name="PrdInHandRetailValue" ColumnName="PrdInHandRetailValue" />
+                <ScalarProperty Name="PrdInHandMarginRate" ColumnName="PrdInHandMarginRate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_rpt_ProductActivityDetail" FunctionName="RetailDBModel.Store.sp_rpt_ProductActivityDetail">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RetailDBModel.sp_rpt_ProductActivityDetail_Result">
+                <ScalarProperty Name="ActivityDate" ColumnName="ActivityDate" />
+                <ScalarProperty Name="SourceProductCode" ColumnName="SourceProductCode" />
+                <ScalarProperty Name="SourceProductQty" ColumnName="SourceProductQty" />
+                <ScalarProperty Name="TargetProductCode" ColumnName="TargetProductCode" />
+                <ScalarProperty Name="TargetProductQty" ColumnName="TargetProductQty" />
+                <ScalarProperty Name="ActivityType" ColumnName="ActivityType" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CompletionDate" ColumnName="CompletionDate" />
+                <ScalarProperty Name="TargetLocation" ColumnName="TargetLocation" />
+                <ScalarProperty Name="ActivityDetailDesc" ColumnName="ActivityDetailDesc" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="AuthenticationRules_Rights_Detail">
+            <EntityTypeMapping TypeName="RetailDBModel.AuthenticationRules_Rights_Detail">
+              <MappingFragment StoreEntitySet="AuthenticationRules_Rights_Detail">
+                <ScalarProperty Name="Deletable" ColumnName="Deletable" />
+                <ScalarProperty Name="Updatable" ColumnName="Updatable" />
+                <ScalarProperty Name="Viewable" ColumnName="Viewable" />
+                <ScalarProperty Name="ObjectName" ColumnName="ObjectName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SMSCampaigns">
+            <EntityTypeMapping TypeName="RetailDBModel.SMSCampaign">
+              <MappingFragment StoreEntitySet="SMSCampaign">
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CampaignMessage" ColumnName="CampaignMessage" />
+                <ScalarProperty Name="CampaignName" ColumnName="CampaignName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SMSCampaignDetails">
+            <EntityTypeMapping TypeName="RetailDBModel.SMSCampaignDetail">
+              <MappingFragment StoreEntitySet="SMSCampaignDetail">
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="SendStatus" ColumnName="SendStatus" />
+                <ScalarProperty Name="SendResponse" ColumnName="SendResponse" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="CampaignID" ColumnName="CampaignID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_POSCustomerSrhList" FunctionName="RetailDBModel.Store.sp_POSCustomerSrhList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RetailDBModel.sp_POSCustomerSrhList_Result">
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="totalBuyingWorth" ColumnName="totalBuyingWorth" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="LOG_NotificationSendingData">
+            <EntityTypeMapping TypeName="RetailDBModel.LOG_NotificationSendingData">
+              <MappingFragment StoreEntitySet="LOG_NotificationSendingData">
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="NotificationStatus" ColumnName="NotificationStatus" />
+                <ScalarProperty Name="NotificationResponse" ColumnName="NotificationResponse" />
+                <ScalarProperty Name="NotificationType" ColumnName="NotificationType" />
+                <ScalarProperty Name="NotificationMessage" ColumnName="NotificationMessage" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
