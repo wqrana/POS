@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.33026.149
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevFstPOSSuiteMain", "DevFstPOSSuiteMain\DevFstPOSSuiteMain.csproj", "{67C97043-8914-4040-8FA4-4AD24F3DE21D}"
 EndProject
@@ -33,8 +33,8 @@ Global
 		{67C97043-8914-4040-8FA4-4AD24F3DE21D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67C97043-8914-4040-8FA4-4AD24F3DE21D}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
 		{67C97043-8914-4040-8FA4-4AD24F3DE21D}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
-		{67C97043-8914-4040-8FA4-4AD24F3DE21D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{67C97043-8914-4040-8FA4-4AD24F3DE21D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67C97043-8914-4040-8FA4-4AD24F3DE21D}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{67C97043-8914-4040-8FA4-4AD24F3DE21D}.Release|Any CPU.Build.0 = Debug|Any CPU
 		{67C97043-8914-4040-8FA4-4AD24F3DE21D}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
 		{67C97043-8914-4040-8FA4-4AD24F3DE21D}.SingleImage|Any CPU.Build.0 = Release|Any CPU
 		{5D924FE6-F72E-43B5-B8AD-FCF3E6CBF600}.CD_ROM|Any CPU.ActiveCfg = CD_ROM
@@ -70,5 +70,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A05F0EFB-044D-4961-BB72-1081D741DEF7}
 	EndGlobalSection
 EndGlobal
